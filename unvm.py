@@ -9,7 +9,6 @@ import zipfile
 
 root_dir = os.path.join(os.environ['LOCALAPPDATA'], 'unvm')
 installed_dir = os.path.join(root_dir, 'installed')
-current_dir = os.path.join(root_dir, 'node')
 
 def get_manifest():
     response = requests.get('https://unofficial-builds.nodejs.org/download/release/index.json')
@@ -43,7 +42,9 @@ def install(version, manifest):
     with zipfile.ZipFile(file, 'r') as archive:
         archive.extractall(installed_dir)
 
-    if os.path.exists(current_dir):
+    os.chdir(root_dir)
+    link_path = os.path.join('.', 'node')
+    if os.path.exists(link_path):
         print(version + ' installed')
         print('To use:')
         print('unvm --use ' + version)
@@ -52,7 +53,9 @@ def install(version, manifest):
 
 def use(version):
     os.chdir(root_dir)
-    os.unlink(os.path.join('.', 'node'))
+    link_path = os.path.join('.', 'node')
+    if os.path.exists(link_path):
+        os.unlink(link_path)
     os.symlink(os.path.join('.', 'installed', 'node-' + version + '-win-arm64'), os.path.join('.', 'node'))
     print('Now using node ' + version)
 
