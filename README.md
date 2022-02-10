@@ -14,7 +14,17 @@ A utility around [nodejs unofficial-builds](https://unofficial-builds.nodejs.org
 
 ## Requirements
 
+### Windows Settings
+
 Enable developer mode in Windows Settings.
+
+### PIP Install
+
+```sh
+pip install requests
+```
+
+### Environment Variables
 
 Update your environment PATH variable to include:
 
