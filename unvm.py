@@ -23,7 +23,10 @@ def filter_entries(manifest):
     return [item for item in manifest if 'win-arm64-zip' in item['files']]
 
 def installed():
-    return [folder.removeprefix('node-').removesuffix('-win-arm64') for folder in os.listdir(installed_dir)]
+    if (os.path.exists(installed_dir)):
+        return [folder.removeprefix('node-').removesuffix('-win-arm64') for folder in os.listdir(installed_dir)]
+    
+    return []
 
 def install(version, manifest):
     if version == 'lts':
