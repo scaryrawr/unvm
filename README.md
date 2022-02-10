@@ -16,7 +16,7 @@ A utility around [nodejs unofficial-builds](https://unofficial-builds.nodejs.org
 
 ### Windows Settings
 
-Enable developer mode in Windows Settings.
+Enable developer mode in Windows Settings. Current node version is set using symbolic links which require either admin or developer mode.
 
 ### PIP Install
 
