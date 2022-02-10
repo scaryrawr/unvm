@@ -1,2 +1,2 @@
 @echo off
-python unvm.py %*
+python %~dp0\unvm.py %*
