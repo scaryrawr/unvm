@@ -5,22 +5,20 @@ import io
 import json
 import os
 import requests
+import platform
 import zipfile
 
 root_dir = os.path.join(os.environ['LOCALAPPDATA'], 'unvm')
 installed_dir = os.path.join(root_dir, 'installed')
 
 def get_architecture():
-    arch = os.environ['PROCESSOR_ARCHITECTURE']
-    if arch == 'x86':
-        return 'x86'
-    elif arch == 'ARM64':
+    is_arm64 = platform.machine() == 'ARM64' or platform.processor().startswith('ARMv8')
+    if is_arm64:
         return 'arm64'
     return 'x64'
 
 def get_source():
-    arch = os.environ['PROCESSOR_ARCHITECTURE']
-    if arch == 'arm64':
+    if get_architecture() == 'arm64':
         return 'https://unofficial-builds.nodejs.org'
     return 'https://builds.nodejs.org'
 
