@@ -1,6 +1,4 @@
 {
-    "cSpell.words": [
-        "chdir",
-        "unvm"
-    ]
+  "cSpell.words": ["chdir", "unvm"],
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
