@@ -21,8 +21,6 @@ def get_architecture():
 
 
 def get_source():
-    if get_architecture() == "arm64":
-        return "https://unofficial-builds.nodejs.org"
     return "https://nodejs.org"
 
 
