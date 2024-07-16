@@ -1,3 +1,22 @@
+# Archived (I personally use fnm)
+
+Check out [fnm](https://github.com/Schniz/fnm) (I didn't make it, I just use it 😅). It works on Linux, macOS, and Windows.
+
+Their builds don't include arm64 by default, but you can install it from source using cargo:
+
+```powershell
+cargo install fnm
+```
+
+Then you can manage node versions using fnm:
+
+```powershell
+fnm install v20.15.1
+fnm use v20.15.1 # may error and recommend updating your powershell profile
+```
+
+It's pretty much a drop in replacement for [nvm](https://github.com/nvm-sh/nvm) *nix version. (The Windows version of [nvm](https://github.com/coreybutler/nvm-windows) has slightly different commands vs nvm on *nix, so fnm being the same on both is really nice.).
+
 # Unofficial Node Version Manager
 
 A utility around [nodejs unofficial-builds](https://unofficial-builds.nodejs.org/download/release/) for Windows on arm64.
